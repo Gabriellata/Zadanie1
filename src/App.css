@@ -1,47 +1,250 @@
+.app {
+  width: min(1100px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 40px 0 60px;
+}
+
+/* Nagłówek */
+
+header {
+  margin-bottom: 28px;
+}
+
+header h1 {
+  margin: 0;
+  color: #222831;
+  font-size: 38px;
+  font-weight: 700;
+  letter-spacing: -0.8px;
+}
+
+/* Filtry */
+
+.filters {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 28px;
+  padding: 14px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.filters button {
+  padding: 9px 16px;
+  border: 1px solid #d9dde3;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #4b5563;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.filters button:hover {
+  border-color: #aab2bd;
+  background: #f8f9fa;
+}
+
+.filters button.active {
+  background: #374151;
+  border-color: #374151;
+  color: #ffffff;
+}
+
+.filters .clear-button {
+  margin-left: auto;
+  color: #b45353;
+  border-color: #ead1d1;
+}
+
+.filters .clear-button:hover {
+  background: #fff6f6;
+  border-color: #d9aaaa;
+}
+
+/* Lista filmów */
+
+.movies {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+/* Karta filmu */
+
+.movie-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 260px;
+  padding: 22px;
+  background: #ffffff;
+  border: 1px solid #e4e7eb;
+  border-radius: 14px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.04);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.movie-card:hover {
+  transform: translateY(-2px);
+  border-color: #d5d9df;
+  box-shadow: 0 7px 20px rgba(0, 0, 0, 0.07);
+}
+
+.movie-card.watched {
+  background: #f8fbf9;
+  border-color: #cfe2d4;
+}
+
+.movie-card h2 {
+  margin: 0 0 14px;
+  color: #252b33;
+  font-size: 21px;
+  font-weight: 650;
+}
+
+.movie-card > p {
+  margin: 4px 0;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+/* Ocena */
+
 .rating {
-  margin: 15px 0;
+  margin: auto 0 18px;
+  padding-top: 18px;
 }
 
 .rating p {
-  margin-bottom: 5px;
+  margin-bottom: 6px;
+  color: #6b7280;
+  font-size: 14px;
 }
 
 .stars {
   display: flex;
-  gap: 3px;
+  justify-content: flex-start;
+  gap: 2px;
 }
 
 .star {
   width: auto !important;
   margin: 0 !important;
-  padding: 0 !important;
-  background: none !important;
-  color: #cbd5e1 !important;
-  font-size: 28px;
-  border: none;
+  padding: 0 2px !important;
+
+  border: none !important;
+  background: transparent !important;
+
+  color: #d5d9df !important;
+  font-size: 25px;
+  line-height: 1;
   cursor: pointer;
-  transition: 0.2s;
-}
-.star {
-  width: auto !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  background: none !important;
-  color: #cbd5e1 !important;
-  font-size: 28px;
-  border: none;
-  cursor: pointer;
-  transition: 0.2s;
+
+  transition:
+    color 0.15s ease,
+    transform 0.15s ease;
 }
 
 .star.active,
 .star:hover {
-  color: #ffd700 !important;
-  transform: scale(1.15);
+  color: #e3b341 !important;
+  transform: scale(1.08);
 }
 
-.stars {
-  display: flex;
-  justify-content: center;
-  gap: 5px;
+/* Przycisk obejrzane */
+
+.movie-card > button {
+  width: 100%;
+  padding: 10px 14px;
+
+  border: 1px solid #d8dde3;
+  border-radius: 8px;
+
+  background: #f8f9fa;
+  color: #374151;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease;
 }
+
+.movie-card > button:hover {
+  background: #eef0f2;
+  border-color: #c6ccd3;
+}
+
+.movie-card.watched > button {
+  background: #edf7ef;
+  border-color: #c8dfce;
+  color: #397047;
+}
+
+/* Brak wyników */
+
+.empty-message {
+  grid-column: 1 / -1;
+
+  margin: 30px 0;
+  padding: 40px;
+
+  text-align: center;
+  color: #6b7280;
+
+  background: #ffffff;
+  border: 1px dashed #d7dbe0;
+  border-radius: 12px;
+}
+
+/* Responsywność */
+
+@media (max-width: 850px) {
+  .movies {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .app {
+    width: min(100% - 20px, 500px);
+    padding: 25px 0 40px;
+  }
+
+  header h1 {
+    font-size: 30px;
+  }
+
+  .filters {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .filters button {
+    width: 100%;
+  }
+
+  .filters .clear-button {
+    margin-left: 0;
+  }
+
+  .movies {
+    grid-template-columns: 1fr;
+  }
+
+  .movie-card {
+    min-height: auto;
+  }
+}
+
