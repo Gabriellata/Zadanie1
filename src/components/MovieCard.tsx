@@ -3,7 +3,7 @@ import { useState } from "react";
 type MovieCardProps = {
   title: string;
   year: number;
-  genre: string;
+  genres: string[];
   watched: boolean;
   onToggleWatched: () => void;
 };
@@ -11,7 +11,7 @@ type MovieCardProps = {
 function MovieCard({
   title,
   year,
-  genre,
+  genres,
   watched,
   onToggleWatched,
 }: MovieCardProps) {
@@ -27,7 +27,11 @@ function MovieCard({
   };
 
   return (
-    <div className={`movie-card ${watched ? "watched" : ""}`}>
+    <div
+      className={`movie-card ${
+        watched ? "watched" : ""
+      }`}
+    >
       <h2>{title}</h2>
 
       <p>
@@ -35,24 +39,32 @@ function MovieCard({
       </p>
 
       <p>
-        Gatunek:{genre}
+        Gatunek: {genres.join(", ")}
       </p>
 
       <div className="rating">
-        <p>
-          Ocena:
-        </p>
+        <p>Ocena:</p>
 
         <div className="stars">
           {[1, 2, 3, 4, 5].map((star) => (
             <button
+              type="button"
               key={star}
               className={
-                star <= (hoverRating || rating) ? "star active" : "star"
+                star <=
+                (hoverRating || rating)
+                  ? "star active"
+                  : "star"
               }
-              onClick={() => handleRatingClick(star)}
-              onMouseEnter={() => setHoverRating(star)}
-              onMouseLeave={() => setHoverRating(0)}
+              onClick={() =>
+                handleRatingClick(star)
+              }
+              onMouseEnter={() =>
+                setHoverRating(star)
+              }
+              onMouseLeave={() =>
+                setHoverRating(0)
+              }
             >
               ★
             </button>
@@ -60,8 +72,13 @@ function MovieCard({
         </div>
       </div>
 
-      <button onClick={onToggleWatched}>
-        {watched ? "✓ Obejrzany" : "Oznacz jako obejrzany"}
+      <button
+        type="button"
+        onClick={onToggleWatched}
+      >
+        {watched
+          ? "✓ Obejrzany"
+          : "Oznacz jako obejrzany"}
       </button>
     </div>
   );

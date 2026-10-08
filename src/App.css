@@ -4,8 +4,6 @@
   padding: 40px 0 60px;
 }
 
-/* Nagłówek */
-
 header {
   margin-bottom: 28px;
 }
@@ -18,7 +16,173 @@ header h1 {
   letter-spacing: -0.8px;
 }
 
-/* Filtry */
+section {
+  margin-bottom: 28px;
+}
+
+section h2 {
+  margin: 0 0 18px;
+  color: #252b33;
+  font-size: 24px;
+}
+
+form {
+  width: 100%;
+  padding: 25px;
+  background: #ffffff;
+  border: 1px solid #e2e5e9;
+  border-radius: 14px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  box-sizing: border-box;
+}
+
+form > div {
+  margin-bottom: 18px;
+}
+
+form label {
+  display: block;
+  margin-bottom: 7px;
+  color: #4b5563;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+form input {
+  display: block;
+  width: 100%;
+  height: 42px;
+  padding: 0 12px;
+  border: 1px solid #d5d9de;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #252b33;
+  font-family: inherit;
+  font-size: 15px;
+  outline: none;
+  box-sizing: border-box;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+form input::placeholder {
+  color: #a0a6ad;
+}
+
+form input:hover {
+  border-color: #b8bec6;
+}
+
+form input:focus {
+  border-color: #6b7280;
+  box-shadow: 0 0 0 3px rgba(55, 65, 81, 0.08);
+}
+
+.genre-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.genre-row input {
+  flex: 1;
+  width: auto;
+}
+
+.add-genre-button {
+  flex: 0 0 42px;
+  width: 42px !important;
+  min-width: 42px;
+  height: 42px;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  border-radius: 8px;
+  background: #374151 !important;
+  color: #ffffff !important;
+  font-size: 24px !important;
+  font-weight: 500;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.add-genre-button:hover {
+  background: #252b33 !important;
+  transform: translateY(-1px);
+}
+
+.remove-genre-button {
+  flex: 0 0 42px;
+  width: 42px !important;
+  min-width: 42px;
+  height: 42px;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  border-radius: 8px;
+  background: #dc2626 !important;
+  color: #ffffff !important;
+  font-size: 24px !important;
+  font-weight: 500;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.remove-genre-button:hover {
+  background: #b91c1c !important;
+  transform: translateY(-1px);
+}
+
+form > button[type="submit"] {
+  margin-top: 3px;
+  padding: 11px 22px;
+  border: none;
+  border-radius: 8px;
+  background: #374151;
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+form > button[type="submit"]:hover {
+  background: #252b33;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+}
+
+form > button[type="submit"]:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+form input[type="number"] {
+  appearance: textfield;
+}
+
+form input[type="number"]::-webkit-inner-spin-button,
+form input[type="number"]::-webkit-outer-spin-button {
+  opacity: 0.5;
+}
 
 .filters {
   display: flex;
@@ -69,15 +233,11 @@ header h1 {
   border-color: #d9aaaa;
 }
 
-/* Lista filmów */
-
 .movies {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 18px;
 }
-
-/* Karta filmu */
 
 .movie-card {
   display: flex;
@@ -88,7 +248,6 @@ header h1 {
   border: 1px solid #e4e7eb;
   border-radius: 14px;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.04);
-
   transition:
     transform 0.2s ease,
     box-shadow 0.2s ease,
@@ -119,8 +278,6 @@ header h1 {
   font-size: 14px;
 }
 
-/* Ocena */
-
 .rating {
   margin: auto 0 18px;
   padding-top: 18px;
@@ -142,15 +299,12 @@ header h1 {
   width: auto !important;
   margin: 0 !important;
   padding: 0 2px !important;
-
   border: none !important;
   background: transparent !important;
-
   color: #d5d9df !important;
   font-size: 25px;
   line-height: 1;
   cursor: pointer;
-
   transition:
     color 0.15s ease,
     transform 0.15s ease;
@@ -162,20 +316,14 @@ header h1 {
   transform: scale(1.08);
 }
 
-/* Przycisk obejrzane */
-
 .movie-card > button {
   width: 100%;
   padding: 10px 14px;
-
   border: 1px solid #d8dde3;
   border-radius: 8px;
-
   background: #f8f9fa;
   color: #374151;
-
   cursor: pointer;
-
   transition:
     background 0.2s ease,
     border-color 0.2s ease;
@@ -192,23 +340,16 @@ header h1 {
   color: #397047;
 }
 
-/* Brak wyników */
-
 .empty-message {
   grid-column: 1 / -1;
-
   margin: 30px 0;
   padding: 40px;
-
   text-align: center;
   color: #6b7280;
-
   background: #ffffff;
   border: 1px dashed #d7dbe0;
   border-radius: 12px;
 }
-
-/* Responsywność */
 
 @media (max-width: 850px) {
   .movies {
@@ -224,6 +365,21 @@ header h1 {
 
   header h1 {
     font-size: 30px;
+  }
+
+  form {
+    padding: 20px;
+  }
+
+  .genre-row {
+    gap: 6px;
+  }
+
+  .add-genre-button,
+  .remove-genre-button {
+    width: 42px !important;
+    min-width: 42px !important;
+    height: 42px;
   }
 
   .filters {
@@ -247,4 +403,4 @@ header h1 {
     min-height: auto;
   }
 }
-
+  
